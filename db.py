@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, BigInteger, String, DateTime, Boolean, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, Float, BigInteger, String, DateTime, Boolean, ForeignKey
 from datetime import datetime
 from sqlalchemy.orm import declarative_base, relationship
 from dotenv import load_dotenv
@@ -22,9 +22,12 @@ class Users(Base):
     tg_id = Column(BigInteger, unique=True)
     username = Column(String)
     full_name = Column(String)
+    name = Column(String)
+    surname = Column(String)
     is_admin = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.now())
-
+    balance = Column(Float, default=0.0)
+    age = Column(Integer)
     carts = relationship('Carts', back_populates='user')
     orders = relationship('Orders', back_populates='user')
     reviews = relationship('Reviews', back_populates='user')
