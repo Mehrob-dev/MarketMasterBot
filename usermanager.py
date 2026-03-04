@@ -31,4 +31,15 @@ async def age_validation(age):
 
     except:
         return False
+
+async def review_validation(review):
+    try:
+        review = int(review)
+        if review < 0 or review > 5:
+            return False
+        
+        else:
+            return True
     
+    except:
+        return False

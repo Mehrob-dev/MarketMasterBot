@@ -54,6 +54,8 @@ class Products(Base):
     stock = Column(Integer, default=0)
     photo_file_id = Column(String)
     created_at = Column(DateTime, default=datetime.now())
+    avg_rating = Column(Float, default=0)
+    reviews_count = Column(Integer, default=0)
 
     category = relationship('Categories', back_populates='products')
     cart_items = relationship('CartItems', back_populates='product')
